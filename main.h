@@ -2,8 +2,13 @@
 #define MAIN_H
 
 #include <stdarg.h>
+#include <stdlib.h>
 
-/* STRUCTS */
+#define NULL_STR "(nil)"
+#define FLAG_INIT {0, 0, 0, 0, 0}
+#define MOD_INIT {0, 0, 0, 0}
+
+/************* STRUCTS *************/
 
 /**
  * struct flags - struct for flags
@@ -55,7 +60,21 @@ typedef struct modifiers
 typedef struct specifier
 {
 	char sp;
-	int (*func)(va_list, flags *, modifiers *);
+	int (*func)(va_list, flags_t *, modifiers_t *);
 } specifier_t;
+
+/************* FUNCTIONS *************/
+
+/* write functions */
+int _putchar(char c);
+int _puts(char *str);
+
+/* printf function */
+int _printf(const char *format, ...);
+
+/* get functions */
+int (*get_print_func(char c))(va_list, flags *, modifiers *);
+int get_flag(char c, flag_t *fg);
+int get_modifier(char c, modifiers_t *md);
 
 #endif
