@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int i, n_bytes;
 	int (*pfunc)(va_list, flags_t *, modifiers_t *);
 
-	if (format == NULL || format[0] == '\0')
+	if (format == NULL)
 		return (-1);
 	va_start(args, format);
 	n_bytes = 0;
@@ -21,14 +21,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[++i] == '%')
+			if (!format[++i] || (format[i] == ' ' && !format[i + 1]))
+				return (-1);
+			if (format[i] == '%')
 			{
 				n_bytes += _putchar('%');
 				continue;
 			}
 			pfunc = get_print_func(format[i]);
-			if(pfunc != NULL)
+			if (pfunc != NULL)
 				n_bytes += pfunc(args, NULL, NULL);
+			else
+				n_bytes += _putchar('%') + _putchar(format[i]);
 		}
 		else
 			n_bytes += _putchar(format[i]);

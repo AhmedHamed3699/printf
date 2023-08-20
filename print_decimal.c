@@ -10,5 +10,8 @@
  */
 int print_decimal(va_list args, flags_t *fg, modifiers_t *md)
 {
+	(void) args;
+	(void) fg;
+	(void) md;
 	return (0);
 }

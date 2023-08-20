@@ -4,14 +4,19 @@
  * print_string - prints a string
  * @args: The va_list containing the character argument
  * @fg: is flag
- * @mg: is modi
+ * @md: is modi
  *
  * Return: The number of characters printed
  */
 
-int print_string(va_list args, flags_t *fg, modifiers_t *mg)
+int print_string(va_list args, flags_t *fg, modifiers_t *md)
 {
-	char *str = va_arg(args, char*);
+	char *str;
+	(void) fg;
+	(void) md;
 
-	_puts(str);
+	str = va_arg(args, char*);
+	if (str == NULL)
+		str = NULL_STR;
+	return (_puts(str));
 }
