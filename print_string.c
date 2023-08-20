@@ -1,4 +1,4 @@
-#include "main"
+#include "main.h"
 
 /**
  * print_string - prints a string
@@ -9,13 +9,9 @@
  * Return: The number of characters printed
  */
 
-int print_string(va_list args, flags *fg, modifiers *mg)
+int print_string(va_list args, flags_t *fg, modifiers_t *mg)
 {
 	char *str = va_arg(args, char*);
 
-	while (*str != '\0')
-	{
-		_putchar(*str);
-		str++;
-	}
+	_puts(str);
 }
