@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 #define NULL_STR "(nil)"
 #define FLAG_INIT {0, 0, 0, 0, 0}
@@ -73,8 +74,8 @@ int _puts(char *str);
 int _printf(const char *format, ...);
 
 /* get functions */
-int (*get_print_func(char c))(va_list, flags *, modifiers *);
-int get_flag(char c, flag_t *fg);
+int (*get_print_func(char c))(va_list, flags_t *, modifiers_t *);
+int get_flag(char c, flags_t *fg);
 int get_modifier(char c, modifiers_t *md);
 
 #endif
