@@ -15,7 +15,7 @@ int print_string(va_list args, flags *fg, modifiers *mg)
 
 	while (*str != '\0')
 	{
-		putchar(*str);
+		_putchar(*str);
 		str++;
 	}
 }
