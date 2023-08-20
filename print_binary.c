@@ -10,5 +10,14 @@
  */
 int print_binary(va_list args, flags_t *fg, modifiers_t *md)
 {
-	return (0);
+	int num = va_arg(args, char*);
+	
+	while (num == 0)
+	{
+	
+		if (num % 2 == 0)
+		{
+			_putchar(0)
+		}
+	}
 }
