@@ -11,6 +11,9 @@
  */
 int print_hex_small(va_list args, flags_t *fg, modifiers_t *md)
 {
+	(void) args;
+	(void) fg;
+	(void) md;
 	return (0);
 }
 
@@ -25,5 +28,8 @@ int print_hex_small(va_list args, flags_t *fg, modifiers_t *md)
  */
 int print_hex_capital(va_list args, flags_t *fg, modifiers_t *md)
 {
-        return (0);
+	(void) args;
+	(void) fg;
+	(void) md;
+	return (0);
 }

@@ -10,5 +10,8 @@
  */
 int print_unsigned(va_list args, flags_t *fg, modifiers_t *md)
 {
-        return (0);
+	(void) args;
+	(void) fg;
+	(void) md;
+	return (0);
 }
