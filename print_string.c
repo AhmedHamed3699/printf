@@ -3,13 +3,13 @@
 /**
  * print_string - prints a string
  * @args: The va_list containing the character argument
- * @f: is flag
- * @m: is modi
+ * @fg: is flag
+ * @mg: is modi
  *
  * Return: The number of characters printed
  */
 
-int print_string(va_list args, flags *f, modifiers *m)
+int print_string(va_list args, flags *fg, modifiers *mg)
 {
 	char *str = va_arg(args, char*);
 
