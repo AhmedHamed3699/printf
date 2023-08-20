@@ -12,19 +12,19 @@ int (*get_print_func(char c))(va_list, flags_t *, modifiers_t *)
 	specifier_t sp_t[] = {
 		{'c', print_char},
 		{'s', print_string},
-		{'d', print_decimal},
-		{'u', print_unsigned},
 		{'i', print_int},
+		{'u', print_unsigned},
+		{'d', print_decimal},
 		{'b', print_binary},
 		{'o', print_octal},
-		{'x', print_hexa_small},
-		{'X', print_hexa_capital},
-		{NULL, NULL}
+		{'x', print_hex_small},
+		{'X', print_hex_capital},
+		{-1, NULL}
 	};
 	int i;
 
 	i = 0;
-	while (sp_t[i].sp != NULL && s != NULL)
+	while (sp_t[i].sp != -1)
 	{
 		if (sp_t[i].sp == c)
 			return (sp_t[i].func);

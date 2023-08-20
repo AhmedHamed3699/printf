@@ -27,7 +27,8 @@ int _printf(const char *format, ...)
 				continue;
 			}
 			pfunc = get_print_func(format[i]);
-			n_bytes += pfunc(args, NULL, NULL);
+			if(pfunc != NULL)
+				n_bytes += pfunc(args, NULL, NULL);
 		}
 		else
 			n_bytes += _putchar(format[i]);

@@ -78,4 +78,15 @@ int (*get_print_func(char c))(va_list, flags_t *, modifiers_t *);
 int get_flag(char c, flags_t *fg);
 int get_modifier(char c, modifiers_t *md);
 
+/* print functions */
+int print_char(va_list args, flags_t *fg, modifiers_t *md);
+int print_string(va_list args, flags_t *fg, modifiers_t *md);
+int print_int(va_list args, flags_t *fg, modifiers_t *md);
+int print_unsigned(va_list args, flags_t *fg, modifiers_t *md);
+int print_decimal(va_list args, flags_t *fg, modifiers_t *md);
+int print_binary(va_list args, flags_t *fg, modifiers_t *md);
+int print_octal(va_list args, flags_t *fg, modifiers_t *md);
+int print_hex_small(va_list args, flags_t *fg, modifiers_t *md);
+int print_hex_capital(va_list args, flags_t *fg, modifiers_t *md);
+
 #endif
