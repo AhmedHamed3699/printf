@@ -10,7 +10,14 @@
  */
 int print_int(va_list args, flags_t *fg, modifiers_t *md)
 {
-	int num = va_arg(args, int);
+	int num = va_arg(args, int), div = 1, digit;
 
-	return (_putchar('0' + num));
+	while (num / div > 9)
+		div *= 10;
+	while (div > 0)
+	{
+		digit = (num / div) % 10;
+		_putchar('0' + digit);
+		div /= 10;
+	}
 }
