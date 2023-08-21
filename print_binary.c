@@ -10,21 +10,13 @@
  */
 int print_binary(va_list args, flags_t *fg, modifiers_t *md)
 {
-<<<<<<< HEAD
-	int num = va_arg(args, char*);
-	
-	while (num == 0)
-	{
-	
-		if (num % 2 == 0)
-		{
-			_putchar(0)
-		}
-	}
-=======
-	(void) args;
-	(void) fg;
-	(void) md;
-	return (0);
->>>>>>> 5fd16204c93822535864fc727227f2ed888c04cd
+	unsigned int num = va_arg(args, char*), cont = 0;
+	char *array;
+
+	if (num == 0)
+		return (_putchar('0'));
+	array = convert_to_string(num, 2, 0);
+	cont += _puts(array);
+	free(array);
+	return (cont);
 }
