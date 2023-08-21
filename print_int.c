@@ -10,14 +10,18 @@
  */
 int print_int(va_list args, flags_t *fg, modifiers_t *md)
 {
-	int num = va_arg(args, int), div = 1, digit;
+	int num = va_arg(args, int), cont = 0;
+	char *array;
 
-	while (num / div > 9)
-		div *= 10;
-	while (div > 0)
+	if (num == 0)
+		return (_putchar('0'));
+	if (num < 0)
 	{
-		digit = (num / div) % 10;
-		_putchar('0' + digit);
-		div /= 10;
+		cont += _putchar('-');
+		num = -num;
 	}
+		array = convert_to_string(num, 10, 0);
+		cont += _puts(array);
+		free(array);
+		return (cont);
 }
