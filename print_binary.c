@@ -10,8 +10,10 @@
  */
 int print_binary(va_list args, flags_t *fg, modifiers_t *md)
 {
-	unsigned int num = va_arg(args, int), cont = 0;
+	unsigned int num = va_arg(args, unsigned int), cont = 0;
 	char *array;
+	(void) fg;
+	(void) md;
 
 	if (num == 0)
 		return (_putchar('0'));
