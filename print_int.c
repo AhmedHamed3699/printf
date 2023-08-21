@@ -20,9 +20,11 @@ int print_int(va_list args, flags_t *fg, modifiers_t *md)
 	if (num < 0)
 	{
 		cont += _putchar('-');
-		num = -num;
+		array = convert_to_string(-1L * num, 10, 0);
 	}
-	array = convert_to_string(num, 10, 0);
+	else
+		array = convert_to_string(num, 10, 0);
+
 	cont += _puts(array);
 	free(array);
 	return (cont);
