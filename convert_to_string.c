@@ -8,12 +8,12 @@
  *
  * Return: converted string
  */
-char *convert_to_string(unsigned int n, int base, int small)
+char *convert_to_string(unsigned long n, int base, int small)
 {
 	char *digits = "0123456789ABCDEF";
 	char *str;
-	unsigned int size, n_tmp;
-	int i;
+	unsigned long size, n_tmp;
+	long i;
 
 	if (small)
 		digits = "0123456789abcdef";
