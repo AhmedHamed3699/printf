@@ -26,6 +26,8 @@ char *convert_to_string(unsigned int n, int base, int small)
 	}
 
 	str = malloc((size + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
 	i = size;
 	str[i--] = '\0';
 	for (; i >= 0; n /= base)

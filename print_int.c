@@ -25,6 +25,8 @@ int print_int(va_list args, flags_t *fg, modifiers_t *md)
 	else
 		array = convert_to_string(num, 10, 0);
 
+	if (array == NULL)
+		return (0);
 	cont += _puts(array);
 	free(array);
 	return (cont);

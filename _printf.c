@@ -15,17 +15,16 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	
-	if (format[0] == '%' &&
-			(!format[1] || (format[1] == ' ' && !format[2])))
-		return (-1);
+
 	va_start(args, format);
 	n_bytes = 0;
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			if (format[++i] == '%')
+			if (!format[++i] || (format[i] == ' ' && !format[i+1]))
+				return (-1);
+			if (format[i] == '%')
 			{
 				n_bytes += _putchar('%');
 				continue;

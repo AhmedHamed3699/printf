@@ -18,6 +18,8 @@ int print_hex_small(va_list args, flags_t *fg, modifiers_t *md)
 	if (num == 0)
 		return (_putchar('0'));
 	array = convert_to_string(num, 16, 1);
+	if (array == NULL)
+		return (0);
 	cont += _puts(array);
 	free(array);
 	return (cont);
@@ -41,6 +43,8 @@ int print_hex_capital(va_list args, flags_t *fg, modifiers_t *md)
 	if (num == 0)
 		return (_putchar('0'));
 	array = convert_to_string(num, 16, 0);
+	if (array == NULL)
+		return (0);
 	cont += _puts(array);
 	free(array);
 	return (cont);
