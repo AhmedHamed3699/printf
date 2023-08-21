@@ -5,15 +5,16 @@
  * @n: the number to be converted
  * @base: base of the number
  * @small: to choose capital or small case
+ * @len: lenth of printed string, which is passed by ref
  *
  * Return: converted string
  */
-char *convert_to_string(unsigned int n, int base, int small)
+char *convert_to_string(unsigned int n, int base, int small, int *len)
 {
 	char *digits = "0123456789ABCDEF";
 	char *str;
-	unsigned int size, n_tmp;
-	int i;
+	unsigned int n_tmp;
+	int i, size;
 
 	if (small)
 		digits = "0123456789abcdef";
@@ -29,6 +30,7 @@ char *convert_to_string(unsigned int n, int base, int small)
 	if (str == NULL)
 		return (NULL);
 	i = size;
+	*len = size;
 	str[i--] = '\0';
 	for (; i >= 0; n /= base)
 		str[i--] = digits[n % base];
