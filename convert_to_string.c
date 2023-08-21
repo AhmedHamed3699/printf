@@ -8,11 +8,12 @@
  *
  * Return: converted string
  */
-char *convert_to_string(int n, int base, int small)
+char *convert_to_string(unsigned int n, int base, int small)
 {
 	char *digits = "0123456789ABCDEF";
 	char *str;
-	int size, n_tmp, i;
+	unsigned int size, n_tmp;
+	int i;
 
 	if (small)
 		digits = "0123456789abcdef";
@@ -27,8 +28,7 @@ char *convert_to_string(int n, int base, int small)
 	str = malloc((size + 1) * sizeof(char));
 	i = size;
 	str[i--] = '\0';
-
-	for (; n > 0; n /= base)
+	for (; i >= 0; n /= base)
 		str[i--] = digits[n % base];
 
 	return (str);
