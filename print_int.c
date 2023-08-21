@@ -10,7 +10,7 @@
  */
 int print_int(va_list args, flags_t *fg, modifiers_t *md)
 {
-	long num = va_arg(args, int), cont = 0;
+	long num = va_arg(args, long), cont = 0;
 	char *array;
 	(void) fg;
 	(void) md;

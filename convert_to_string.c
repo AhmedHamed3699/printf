@@ -13,7 +13,7 @@ char *convert_to_string(unsigned long n, int base, int small)
 	char *digits = "0123456789ABCDEF";
 	char *str;
 	unsigned long size, n_tmp;
-	int i;
+	long i;
 
 	if (small)
 		digits = "0123456789abcdef";
