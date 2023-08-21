@@ -14,7 +14,7 @@ int (*get_print_func(char c))(va_list, flags_t *, modifiers_t *)
 		{'s', print_string},
 		{'i', print_int},
 		{'u', print_unsigned},
-		{'d', print_decimal},
+		{'d', print_int},
 		{'b', print_binary},
 		{'o', print_octal},
 		{'x', print_hex_small},
