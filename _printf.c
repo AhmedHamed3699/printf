@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
 		else
 			n_bytes += _putchar(format[i]);
 	}
+	n_bytes += _putchar(-1);
 	va_end(args);
 	return (n_bytes);
 }

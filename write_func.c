@@ -5,31 +5,44 @@
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * Return: cur if buffer is to be emptied
+ * Otherwise return 0
  */
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+	static char buffer[BUFFER_SIZE];
+	static int cur;
+	int ret = 0;
+
+	if (c == -1 || cur >= BUFFER_SIZE)
+	{
+		write(1, &buffer, cur);
+		ret = cur;
+		cur = 0;
+	}
+	buffer[cur] = c;
+	cur++;
+	return (ret);
 }
 
 /**
  * _puts - prints a string
  * @str: The string to be printed
  *
- * Return: On success size of string is returned
- * On error, -1 is returned
+ * Return: cur if buffer is to be emptied
+ * Otherwise return 0
  */
 int _puts(char *str)
 {
-	int i;
+	int i, ret;
 
 	if (str == NULL)
 		return (-1);
 	i = 0;
+	ret = 0;
 	while (str[i] != '\0')
-		_putchar(str[i++]);
+		ret += _putchar(str[i++]);
 
-	return (i);
+	return (ret);
 
 }
