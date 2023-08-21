@@ -79,7 +79,7 @@ int get_flag(char c, flags_t *fg);
 int get_modifier(char c, modifiers_t *md);
 
 /* helper functions */
-char *convert_to_string(int n, int base);
+char *convert_to_string(int n, int base, int small);
 
 /* print functions */
 int print_char(va_list args, flags_t *fg, modifiers_t *md);
