@@ -10,39 +10,44 @@
  */
 int print_int(va_list args, flags_t *fg, modifiers_t *md)
 {
-	int num = va_arg(args, int), cont = 0;
-	char *array;
-	int i;
+	int num = va_arg(args, int), cont = 0, i;
+	char *array = NULL;
+	char extra = ' ', sign = 0;
 	int *len = malloc(sizeof(int));
 
+	if (len == NULL)
+		return (0);
+	*len = 1;
+	sign = (fg->plus) ? '+' : (fg->space) ? ' ' : 0;
 	if (num < 0)
 	{
-		cont += _putchar('-');
+		sign = '-';
 		array = convert_to_string(-1L * num, 10, 0, len);
 	}
-	else
-	{
-		if (fg->plus)
-			cont += _putchar('+');
-		else if (fg->space)
-			cont += _putchar(' ');
-		if (num == 0)
-			return (_putchar('0') + cont);
+	else if (num > 0)
 		array = convert_to_string(num, 10, 0, len);
-	}
-
-	if (array == NULL)
+	if (array == NULL && num != 0)
+	{
+		free(len);
 		return (0);
-
-	if (fg->plus || num < 0)
+	}
+	if (sign)
 		*len += 1;
 	if (fg->zero)
+		extra = '0';
+	if ((!md->width && sign) || (md->width && fg->zero && sign))
+		cont += _putchar(sign);
+	if (md->width)
 	{
 		for (i = 0; i < md->width - (*len); i++)
-			cont += _putchar('0');
+			cont += _putchar(extra);
+		if (!fg->zero && sign)
+			cont += _putchar(sign);
 	}
+	free(len);
+	if (num == 0)
+		return (_putchar('0') + cont);
 	cont += _puts(array);
 	free(array);
-	free(len);
 	return (cont);
 }

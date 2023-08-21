@@ -11,7 +11,12 @@
 int print_char(va_list args, flags_t *fg, modifiers_t *md)
 {
 	char c = va_arg(args, int);
+	int i, cont = 0;
 	(void) fg;
-	(void) md;
-	return (_putchar(c));
+	if (md->width)
+	{
+		for (i = 0; i < md->width - 1; i++)
+			cont += _putchar(' ');
+	}
+	return (_putchar(c) + cont);
 }
