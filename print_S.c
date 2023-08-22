@@ -20,7 +20,7 @@ int print_S(va_list args, flags_t *fg, modifiers_t *md)
 		return (_puts(NULL_STR));
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] > 0 && str[i] < 32 || str[i >= 127])
+		if ((str[i] > 0 && str[i] < 32) || str[i >= 127])
 		{
 			cont += _putchar('\\');
 			cont += _putchar('x');
@@ -34,5 +34,5 @@ int print_S(va_list args, flags_t *fg, modifiers_t *md)
 			cont += _putchar(str[i]);
 		}
 	}
-	return (sum);
+	return (cont);
 }

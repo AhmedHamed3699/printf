@@ -21,14 +21,6 @@ int print_int(va_list args, flags_t *fg, modifiers_t *md)
 	sign = (fg->plus) ? '+' : (fg->space) ? ' ' : 0;
 	if (num < 0)
 	{
-<<<<<<< HEAD
-		cont += _putchar('-');
-		array = convert_to_string(-1L * num, 10, 0);
-	}
-	else
-		array = convert_to_string(num, 10, 0);
-
-=======
 		sign = '-';
 		array = convert_to_string(-1L * num, 10, 0, len);
 	}
@@ -55,7 +47,6 @@ int print_int(va_list args, flags_t *fg, modifiers_t *md)
 	free(len);
 	if (num == 0)
 		return (_putchar('0') + cont);
->>>>>>> 4f51e9ec64817fdc2f7b3109d0aaa6bbfb5d31b9
 	cont += _puts(array);
 	free(array);
 	return (cont);
