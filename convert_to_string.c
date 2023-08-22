@@ -30,7 +30,8 @@ char *convert_to_string(unsigned int n, int base, int small, int *len)
 	if (str == NULL)
 		return (NULL);
 	i = size;
-	*len = size;
+	if (len != NULL)
+		*len = size;
 	str[i--] = '\0';
 	for (; i >= 0; n /= base)
 		str[i--] = digits[n % base];
