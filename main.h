@@ -80,11 +80,7 @@ int get_flag(char c, flags_t *fg);
 int get_modifier(char c, modifiers_t *md);
 
 /* helper functions */
-<<<<<<< HEAD
-char *convert_to_string(unsigned int n, int base, int small);
-=======
 char *convert_to_string(unsigned int n, int base, int small, int *len);
->>>>>>> 4f51e9ec64817fdc2f7b3109d0aaa6bbfb5d31b9
 
 /* print functions */
 int print_char(va_list args, flags_t *fg, modifiers_t *md);

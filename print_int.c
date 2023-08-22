@@ -10,17 +10,10 @@
  */
 int print_int(va_list args, flags_t *fg, modifiers_t *md)
 {
-<<<<<<< HEAD
-	long num = va_arg(args, long), cont = 0;
-	char *array;
-	(void) fg;
-	(void) md;
-=======
 	int num = va_arg(args, int), cont = 0, i;
 	char *array = NULL;
 	char extra = ' ', sign = 0;
 	int *len = malloc(sizeof(int));
->>>>>>> 4f51e9ec64817fdc2f7b3109d0aaa6bbfb5d31b9
 
 	if (len == NULL)
 		return (0);
