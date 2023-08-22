@@ -96,5 +96,6 @@ int print_binary(va_list args, flags_t *fg, modifiers_t *md);
 int print_octal(va_list args, flags_t *fg, modifiers_t *md);
 int print_hex_small(va_list args, flags_t *fg, modifiers_t *md);
 int print_hex_capital(va_list args, flags_t *fg, modifiers_t *md);
+int print_S(va_list args, flags_t *fg, modifiers_t *md);
 
 #endif
