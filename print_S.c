@@ -10,7 +10,7 @@
  */
 int print_S(va_list args, flags_t *fg, modifiers_t *md)
 {
-	char *str = va_arg(args, char*);
+	unsigned char *str = va_arg(args, unsigned char*);
 	char *hex;
 	int cont = 0, i;
 	(void) fg;
@@ -20,19 +20,17 @@ int print_S(va_list args, flags_t *fg, modifiers_t *md)
 		return (_puts(NULL_STR));
 	for (i = 0; str[i]; i++)
 	{
-		if ((str[i] > 0 && str[i] < 32) || str[i >= 127])
+		if (str[i] > 0 && (str[i] < 32 || str[i] >= 127))
 		{
-			cont += _putchar('\\');
-			cont += _putchar('x');
+			cont += _putchar('\\') + _putchar('x');
 			hex = convert_to_string(str[i], 16, 0, NULL);
 			if (!hex[1])
 				cont += _putchar('0');
 			cont += _puts(hex);
 		}
 		else
-		{
 			cont += _putchar(str[i]);
-		}
 	}
+	free(hex);
 	return (cont);
 }

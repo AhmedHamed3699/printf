@@ -16,11 +16,10 @@ int print_rev(va_list args, flags_t *fg, modifiers_t *md)
 	(void) md;
 
 	if (str == NULL)
-		return (_puts(NULL_STR));
+		return (0);
 	while (str[i])
 		i++;
 	while (i--)
 		cont += _putchar(str[i]);
-	cont += _putchar(str[i]);
 	return (cont);
 }
