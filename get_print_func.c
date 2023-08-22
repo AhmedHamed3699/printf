@@ -19,6 +19,7 @@ int (*get_print_func(char c))(va_list, flags_t *, modifiers_t *)
 		{'o', print_octal},
 		{'x', print_hex_small},
 		{'X', print_hex_capital},
+		{'S', print_S},
 		{-1, NULL}
 	};
 	int i;
