@@ -11,26 +11,34 @@
 int print_S(va_list args, flags_t *fg, modifiers_t *md)
 {
 	unsigned char *str = va_arg(args, unsigned char*);
-	char *hex;
-	int cont = 0, i;
+	char *hex = NULL;
+	int cont = 0, i, *len;
 	(void) fg;
 	(void) md;
 
 	if (str == NULL)
 		return (_puts(NULL_STR));
-	for (i = 0; str[i]; i++)
+	len = malloc(sizeof(int));
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] > 0 && (str[i] < 32 || str[i] >= 127))
+		if ((str[i] > 0 && str[i] < 32) || str[i] >= 127)
 		{
-			cont += _putchar('\\') + _putchar('x');
-			hex = convert_to_string(str[i], 16, 0, NULL);
-			if (!hex[1])
-				cont += _putchar('0');
-			cont += _puts(hex);
+			cont += _puts("\\x");
+			hex = convert_to_string(str[i], 16, 0, len);
+			if (hex == NULL)
+			{
+				free(len);
+				return (0);
+			}
+			if (*len == 1)
+				cont += _putchar('0') + _putchar(hex[0]);
+			else
+				cont += _putchar(hex[0]) + _putchar(hex[1]);
+			free(hex);
 		}
 		else
 			cont += _putchar(str[i]);
 	}
-	free(hex);
+	free(len);
 	return (cont);
 }
