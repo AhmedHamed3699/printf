@@ -19,7 +19,8 @@ int print_rev(va_list args, flags_t *fg, modifiers_t *md)
 		return (_puts(NULL_STR));
 	while (str[i])
 		i++;
-	for (i, i >= 0, i--)
+	while (i--)
 		cont += _putchar(str[i]);
+	cont += _putchar(str[i]);
 	return (cont);
 }
