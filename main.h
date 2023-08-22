@@ -80,7 +80,7 @@ int get_flag(char c, flags_t *fg);
 int get_modifier(char c, modifiers_t *md);
 
 /* helper functions */
-char *convert_to_string(unsigned int n, int base, int small, int *len);
+char *convert_to_string(unsigned long int n, int base, int small, int *len);
 
 /* print functions */
 int print_char(va_list args, flags_t *fg, modifiers_t *md);
@@ -93,6 +93,7 @@ int print_octal(va_list args, flags_t *fg, modifiers_t *md);
 int print_hex_small(va_list args, flags_t *fg, modifiers_t *md);
 int print_hex_capital(va_list args, flags_t *fg, modifiers_t *md);
 int print_S(va_list args, flags_t *fg, modifiers_t *md);
+int print_address(va_list args, flags_t *fg, modifiers_t *md);
 int print_rev(va_list args, flags_t *fg, modifiers_t *md);
 
 #endif

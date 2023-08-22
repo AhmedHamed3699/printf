@@ -9,11 +9,11 @@
  *
  * Return: converted string
  */
-char *convert_to_string(unsigned int n, int base, int small, int *len)
+char *convert_to_string(unsigned long int n, int base, int small, int *len)
 {
 	char *digits = "0123456789ABCDEF";
 	char *str;
-	unsigned int n_tmp;
+	unsigned long int n_tmp;
 	int i, size;
 
 	if (small)
